@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  audioplayers: ^5.2.0
+  audioplayers: ^6.0.0
   provider: ^6.0.5     
   path_provider: ^2.1.0
   # The following adds the Cupertino Icons font to your application.
@@ -58,9 +58,10 @@ flutter:
     - assets/images/Base.png
     - assets/images/Cat.png
     - assets/images/Cow.png
-    - assets/audio/CatCowIntro.mp3
-    - assets/audio/CatCowLoop.mp3
-    - assets/audio/CatCowOutro.mp3
+    - assets/audio/
+    # - assets/audio/CatCowIntro.mp3
+    # - assets/audio/CatCowLoop.mp3
+    # - assets/audio/CatCowOutro.mp3
 
 
   # The following line ensures that the Material Icons font is

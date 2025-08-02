@@ -34,26 +34,41 @@ class _SessionScreenState extends State<SessionScreen> {
   }
 
   Future<void> _playSequence(Sequence sequence) async {
-    await audioPlayer.play(
-      AssetSource('assets/audio/${widget.session.audio[sequence.audioRef]}'),
-    );
-    setState(() {
-      progress = 0.0;
-      currentScriptIndex = 0;
-    });
-    timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
-      final totalDuration = sequence.durationSec;
+    try {
+      String audioPath = widget.session.audio[sequence.audioRef]!;
+      print('Attempting to play: $audioPath at ${DateTime.now()}');
+      await audioPlayer.play(AssetSource(audioPath));
+      print('Audio play successful at ${DateTime.now()}');
       setState(() {
-        progress += 0.1 / totalDuration;
-        if (progress >= 1.0) {
-          timer.cancel();
-          audioPlayer.stop();
-          _moveToNextSequence();
-        } else {
-          _updateScript(sequence);
-        }
+        progress = 0.0;
+        currentScriptIndex = 0;
       });
-    });
+      int iterationCount =
+          sequence.type == 'loop' ? sequence.iterations ?? 1 : 1;
+      for (int i = 0; i < iterationCount; i++) {
+        timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+          final totalDuration = sequence.durationSec;
+          setState(() {
+            progress += 0.1 / totalDuration;
+            if (progress >= 1.0) {
+              timer.cancel();
+              if (i < iterationCount - 1) {
+                progress = 0.0; // Reset for next iteration
+              } else {
+                audioPlayer.stop();
+                _moveToNextSequence();
+              }
+            } else {
+              _updateScript(sequence);
+            }
+          });
+        });
+        await audioPlayer.onPlayerComplete.first; // Wait for audio to finish
+        timer?.cancel();
+      }
+    } catch (e) {
+      print('Audio playback failed at ${DateTime.now()}: $e');
+    }
   }
 
   void _updateScript(Sequence sequence) {
