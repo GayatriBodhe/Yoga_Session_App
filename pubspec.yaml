@@ -54,11 +54,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/poses.json
-    - assets/images/Base.png
-    - assets/images/Cat.png
-    - assets/images/Cow.png
-    - assets/audio/
+    - assets
     # - assets/audio/CatCowIntro.mp3
     # - assets/audio/CatCowLoop.mp3
     # - assets/audio/CatCowOutro.mp3

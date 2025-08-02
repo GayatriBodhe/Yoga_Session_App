@@ -36,7 +36,9 @@ class _SessionScreenState extends State<SessionScreen> {
 
   Future<void> _playSequence(Sequence sequence) async {
     try {
-      String audioPath = widget.session.audio[sequence.audioRef]!;
+      String audioPath =
+          'assets/audio/${widget.session.audio[sequence.audioRef]}';
+      print('Resolved audio path for AssetSource: $audioPath');
       print('Attempting to play: $audioPath at ${DateTime.now()}');
       await audioPlayer.play(AssetSource(audioPath));
       print('Audio play successful at ${DateTime.now()}');
