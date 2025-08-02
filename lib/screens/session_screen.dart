@@ -24,6 +24,7 @@ class _SessionScreenState extends State<SessionScreen> {
   @override
   void initState() {
     super.initState();
+    print('Checking assets: ${widget.session.audio.values}');
     _startSession();
   }
 
