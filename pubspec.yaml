@@ -54,10 +54,12 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets
-    # - assets/audio/CatCowIntro.mp3
-    # - assets/audio/CatCowLoop.mp3
-    # - assets/audio/CatCowOutro.mp3
+    - assets/images/
+    - assets/audio/
+    - assets/audio/CatCowIntro.mp3
+    - assets/audio/CatCowLoop.mp3
+    - assets/audio/CatCowOutro_fixed.mp3
+    - assets/poses.json
 
 
   # The following line ensures that the Material Icons font is

@@ -76,7 +76,7 @@ class YogaSession {
       audio: {
         'intro': 'CatCowIntro.mp3',
         'loop': 'CatCowLoop.mp3',
-        'outro': 'CatCowOutro.mp3',
+        'outro': 'CatCowOutro_fixed.mp3', // Updated
       },
       sequence:
           (data['sequence'] as List)
