@@ -113,7 +113,7 @@ Include visual proof of the app’s interface. Add these images to the `assets/s
 Watch the app in action! A 30-45 second video demonstrating key features is included:
 
 - **[Demo Video]**  
-  ![Yoga Session App Demo](https://github.com/<your-username>/YogaSessionApp/blob/main/assets/video/demo.mp4?raw=true)  
+  ![Yoga Session App Demo](https://github.com/GayatriBodhe/Yoga_Session_App/blob/main/assets/video/Yoga_App.mp4)  
   _Shows navigation from PreviewScreen, iteration text during breath_cycle, play/pause, skip, and completion dialog._
 
 *Note*: Upload the `demo.mp4` file to the `assets/video/` folder in your repository and update the URL with your GitHub username and repository name.
